@@ -13,6 +13,4 @@ enum	e_cmd
 	EXIT
 };
 
-int		ft_menu(void);
-
 #endif

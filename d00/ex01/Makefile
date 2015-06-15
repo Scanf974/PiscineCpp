@@ -2,8 +2,7 @@ CC = clang++
 NAME = phonebook
 CFLAGS = -Wextra -Wall -Werror
 
-SRC_MAIN = main.cpp \
-		   ft_menu.cpp
+SRC_MAIN = ft_menu.cpp
 
 SRC_CLASS = Contact.class.cpp
 

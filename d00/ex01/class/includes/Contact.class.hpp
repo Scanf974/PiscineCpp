@@ -9,10 +9,28 @@ using namespace		std;
 class	Contact {
 
 	public:
-		Contact(string fn, int addr);
+		Contact(void);
 		~Contact(void);
 
-		static int	getNbInst(void);
+		int			getAddr(void) const;
+		string		getFname(void) const;
+		string		getLname(void) const;
+		string		getNname(void) const;
+		string		getLogin(void) const;
+		string		getEmail(void) const;
+		string		getFmeal(void) const;
+		string		getUnderWearColor(void) const;
+		string		getDarkSecret(void) const;
+
+		void		setAddr(int addr);
+		void		setFname(string fn);
+		void		setLname(string ln);
+		void		setNname(string nn);
+		void		setLogin(string log);
+		void		setEmail(string em);
+		void		setFmeal(string fm);
+		void		setUnderWearColor(string uwc);
+		void		setDarkSecret(string ds);
 
 	private:
 		string		_fname;
@@ -24,7 +42,6 @@ class	Contact {
 		string		_fmeal;
 		string		_underwearcolor;
 		string		_darkestsecret;
-		static int	_nbInst;
 };
 
 #endif
