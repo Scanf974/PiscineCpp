@@ -10,7 +10,8 @@ static string	ft_choisecmd(void)
 		cout << "\twrite \"SEARCH\": to SEARCH a contact" << endl;
 		cout << "\twrite \"EXIT\": to EXIT you're phohe" << endl;
 		cout << ": ";
-		getline(cin, c);
+		if (getline(cin, c) == 0)
+			return ("EXIT");
 	}
 	return (c);
 }
@@ -60,6 +61,7 @@ int		main(void)
 {
 	Contact	profil[8];
 	int		nb = 0;
+	int		i;
 	string	cmd;
 
 	while (1)
@@ -67,11 +69,44 @@ int		main(void)
 		cout << "ContactPhone" << endl;
 		cmd = ft_choisecmd();
 		if (!cmd.compare("EXIT"))
+		{
+			cout << endl;
 			return (0);
+		}
 		if (!cmd.compare("ADD") && nb < 8)
 		{
 			profil[nb] = add();
 			nb++;
+		}
+		else if (!cmd.compare("SEARCH"))
+		{
+			i = 0;
+			cout << "---------------------------------------------" << endl;
+			cout << "|" << setw(11) << "index|" << setw(11) << "first name|" << setw(11) << "last name|" << setw(11) << "nickname|" << endl;
+			cout << "---------------------------------------------" << endl;
+			while (i < nb)
+			{
+				cout << "|" << setw(10) << i;
+				cout << "|" << setw(10);
+				if (profil[i].getFname().length() > 10)
+					cout << profil[i].getFname().substr(0 , 9) + ".";
+				else
+					cout << profil[i].getFname();
+				cout << "|" << setw(10);
+				if (profil[i].getLname().length() > 10)
+					cout << profil[i].getLname().substr(0 , 9) + ".";
+				else
+					cout << profil[i].getLname();
+				cout << "|" << setw(10);
+				if (profil[i].getNname().length() > 10)
+					cout << profil[i].getNname().substr(0 , 9) + ".";
+				else
+					cout << profil[i].getNname();
+				cout << "|" << endl;
+				i++;
+			}
+			cout << "---------------------------------------------" << endl;
+			//cout << setfill('-') << setw(54);
 		}
 		//std::getline (std::cin, md);
 

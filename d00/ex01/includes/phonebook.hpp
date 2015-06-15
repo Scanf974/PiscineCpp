@@ -2,15 +2,9 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <Contact.class.hpp>
 
 using namespace		std;
-
-enum	e_cmd
-{
-	ADD,
-	SEARCH,
-	EXIT
-};
 
 #endif
