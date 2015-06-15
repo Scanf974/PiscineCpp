@@ -24,4 +24,4 @@ void	Contact::setLogin(string log) { this->_login = log; }
 void	Contact::setEmail(string em) { this->_email = em; }
 void	Contact::setFmeal(string fm) { this->_fmeal = fm; }
 void	Contact::setUnderWearColor(string uwc) { this->_underwearcolor = uwc; }
-void	Contact::setDarkSecret(string ds) { this->_darkestsecret = ds; }
+void	Contact::setDarkestSecret(string ds) { this->_darkestsecret = ds; }

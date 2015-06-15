@@ -30,7 +30,7 @@ class	Contact {
 		void		setEmail(string em);
 		void		setFmeal(string fm);
 		void		setUnderWearColor(string uwc);
-		void		setDarkSecret(string ds);
+		void		setDarkestSecret(string ds);
 
 	private:
 		string		_fname;
