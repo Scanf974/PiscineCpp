@@ -57,11 +57,20 @@ static Contact	add(void)
 	return (profil);
 }
 
+static string	ft_select(void)
+{
+	string	str;
+
+	
+	return (str);
+}
+
 int		main(void)
 {
 	Contact	profil[8];
 	int		nb = 0;
 	int		i;
+	string	pos;
 	string	cmd;
 
 	while (1)
@@ -73,9 +82,9 @@ int		main(void)
 			cout << endl;
 			return (0);
 		}
-		if (!cmd.compare("ADD") && nb < 8)
+		if (!cmd.compare("ADD"))
 		{
-			profil[nb] = add();
+			profil[nb % 8] = add();
 			nb++;
 		}
 		else if (!cmd.compare("SEARCH"))
@@ -84,7 +93,7 @@ int		main(void)
 			cout << "---------------------------------------------" << endl;
 			cout << "|" << setw(11) << "index|" << setw(11) << "first name|" << setw(11) << "last name|" << setw(11) << "nickname|" << endl;
 			cout << "---------------------------------------------" << endl;
-			while (i < nb)
+			while (i < nb && i < 8)
 			{
 				cout << "|" << setw(10) << i;
 				cout << "|" << setw(10);
@@ -106,6 +115,13 @@ int		main(void)
 				i++;
 			}
 			cout << "---------------------------------------------" << endl;
+			cout << "index: ";
+			while (1)
+			{
+				pos = ft_select();
+			}
+			cout << "ta choisi " << pos;
+		
 			//cout << setfill('-') << setw(54);
 		}
 		//std::getline (std::cin, md);
