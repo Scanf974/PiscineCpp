@@ -1,18 +1,21 @@
 #include <phonebook.hpp>
 
-static int	ft_choisecmd(void)
+static string	ft_choisecmd(void)
 {
-	string		c;
+	string		c = "";
 
-	cout << "\t" << ADD << ": to ADD a contact" << endl;
-	cout << "\t" << SEARCH << ": to SEARCH a contact" << endl;
-	cout << "\t" << EXIT << ": to EXIT you're phohe" << endl;
-	cout << ": ";
-	getline(cin, c);
-	return (0);
+	while (c.compare("ADD") && c.compare("SEARCH") && c.compare("EXIT"))
+	{
+		cout << "\twrite \"ADD\" to ADD a contact" << endl;
+		cout << "\twrite \"SEARCH\": to SEARCH a contact" << endl;
+		cout << "\twrite \"EXIT\": to EXIT you're phohe" << endl;
+		cout << ": ";
+		getline(cin, c);
+	}
+	return (c);
 }
 
-Contact		add(void)
+static Contact	add(void)
 {
 	Contact		profil;
 	string		str;
@@ -29,9 +32,18 @@ Contact		add(void)
 	cout << "Login: ";
 	getline(cin, str);
 	profil.setLogin(str);
+	cout << "Postal Adrress: ";
+	getline(cin, str);
+	profil.setAddr(str);
 	cout << "Email: ";
 	getline(cin, str);
 	profil.setEmail(str);
+	cout << "Phone: ";
+	getline(cin, str);
+	profil.setPhone(str);
+	cout << "Birthday date: ";
+	getline(cin, str);
+	profil.setBirthdayDate(str);
 	cout << "Favorite meal: ";
 	getline(cin, str);
 	profil.setFmeal(str);
@@ -48,29 +60,19 @@ int		main(void)
 {
 	Contact	profil[8];
 	int		nb = 0;
-	int		choise;
-	int		i;
+	string	cmd;
 
 	while (1)
 	{
 		cout << "ContactPhone" << endl;
-		while ((choise = ft_choisecmd()) > EXIT && choise >= 0)
-			cout << "Make a good choice: 0 - " << EXIT << endl;
-		if (choise == EXIT)
+		cmd = ft_choisecmd();
+		if (!cmd.compare("EXIT"))
 			return (0);
-		if (choise == ADD && nb < 8)
+		if (!cmd.compare("ADD") && nb < 8)
 		{
 			profil[nb] = add();
 			nb++;
 		}
-		cout << "---ii---" << endl;
-		i = 0;
-		while (i < nb)
-		{
-			cout << i << ": " <<  profil[i].getFname() << profil[i].getLname() << endl;
-			i++;
-		}
-		cout << "---ii---" << endl;
 		//std::getline (std::cin, md);
 
 		//	std::string		cmd;

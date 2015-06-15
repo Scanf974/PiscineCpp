@@ -12,21 +12,25 @@ class	Contact {
 		Contact(void);
 		~Contact(void);
 
-		int			getAddr(void) const;
 		string		getFname(void) const;
 		string		getLname(void) const;
 		string		getNname(void) const;
 		string		getLogin(void) const;
+		string		getAddr(void) const;
+		string		getPhone(void) const;
+		string		getBirthdayDate(void) const;
 		string		getEmail(void) const;
 		string		getFmeal(void) const;
 		string		getUnderWearColor(void) const;
 		string		getDarkSecret(void) const;
 
-		void		setAddr(int addr);
 		void		setFname(string fn);
 		void		setLname(string ln);
 		void		setNname(string nn);
 		void		setLogin(string log);
+		void		setPhone(string pho);
+		void		setAddr(string addr);
+		void		setBirthdayDate(string bd);
 		void		setEmail(string em);
 		void		setFmeal(string fm);
 		void		setUnderWearColor(string uwc);
@@ -37,7 +41,9 @@ class	Contact {
 		string		_lname;
 		string		_nname;
 		string		_login;
-		int	  		_address;
+		string 		_address;
+		string		_phone;
+		string		_birthday;
 		string		_email;
 		string		_fmeal;
 		string		_underwearcolor;
