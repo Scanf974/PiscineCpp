@@ -2,7 +2,6 @@
 
 int		main(void)
 {
-	cout << Contact::getNbInst();
-//	while (ft_menu());
+	while (ft_menu());
 	return (0);
 }
