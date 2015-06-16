@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/16 12:06:51 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/16 15:59:12 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/16 12:06:37 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/16 16:01:00 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
+Zombie::Zombie(std::string name, std::string type) : _name(name), _type(type) {
+	std::cout << "A Zombie born" << std::endl;
+	return ;
+}
 
-class	Zombie
+Zombie::Zombie(void) {}
+
+Zombie::~Zombie(void) {
+	std::cout << "A Zombie die" << std::endl;
+	return ;
+}
+
+void	Zombie::announce(void)
 {
-	public:
-		Zombie(std::string name, std::string type);
-		Zombie(void);
-		~Zombie(void);
-		void	announce(void);
-
-	private:
-		std::string	_name;
-		std::string	_type;
-};
-
-#endif
+	std::cout << "<" << this->_name << " (" << this->_type << ")> Braiiiiiiinnnssss..." << std::endl;
+}
