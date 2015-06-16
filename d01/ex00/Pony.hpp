@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/16 11:16:12 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/16 11:36:41 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/16 11:52:12 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class	Pony
 		~Pony(void);
 
 	private:
-		int			_life;
 		std::string	_name;
+		int			_life;
 		int			_nbFeet;
 };
 
