@@ -57,12 +57,19 @@ static Contact	add(void)
 	return (profil);
 }
 
-static string	ft_select(void)
+static int	ft_select(int nb)
 {
-	string	str;
+	string	str = "";
+	int		pos = -1;
 
-	
-	return (str);
+	while (pos < 0 || pos >= nb || pos > 7)
+	{
+		cout << "index: ";
+		if (getline(cin, str) == 0)
+			return (-1);
+		pos = str.compare("0");
+	}
+	return (pos);
 }
 
 int		main(void)
@@ -70,7 +77,7 @@ int		main(void)
 	Contact	profil[8];
 	int		nb = 0;
 	int		i;
-	string	pos;
+	int		pos;
 	string	cmd;
 
 	while (1)
@@ -115,21 +122,13 @@ int		main(void)
 				i++;
 			}
 			cout << "---------------------------------------------" << endl;
-			cout << "index: ";
-			while (1)
+			if (nb > 0)
 			{
-				pos = ft_select();
+				pos = ft_select(nb);
+				if (pos != -1)
+					profil[pos].showAll();
 			}
-			cout << "ta choisi " << pos;
-		
-			//cout << setfill('-') << setw(54);
 		}
-		//std::getline (std::cin, md);
-
-		//	std::string		cmd;
-
-		//	std::cout << "awef " << std::endl;
-
 	}
 	return (0);
 }

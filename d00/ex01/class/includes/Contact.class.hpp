@@ -36,6 +36,8 @@ class	Contact {
 		void		setUnderWearColor(string uwc);
 		void		setDarkestSecret(string ds);
 
+		void		showAll(void) const;
+
 	private:
 		string		_fname;
 		string		_lname;

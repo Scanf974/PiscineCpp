@@ -29,3 +29,17 @@ void	Contact::setBirthdayDate(string bd) { this->_birthday = bd; }
 void	Contact::setFmeal(string fm) { this->_fmeal = fm; }
 void	Contact::setUnderWearColor(string uwc) { this->_underwearcolor = uwc; }
 void	Contact::setDarkestSecret(string ds) { this->_darkestsecret = ds; }
+
+void	Contact::showAll(void) const {
+	cout << "First Name: " << this->_fname << endl;
+    cout <<  "Last Name: " << this->_lname << endl;
+    cout << "Nick Name: " << this->_nname << endl;
+    cout << "Login: " << this->_login << endl;
+    cout << "Postal Adrress: " << this->_address << endl;
+    cout << "Email: " << this->_email << endl;
+    cout << "Phone: " << this->_phone << endl;
+    cout << "Birthday date: " << this->_birthday << endl;
+    cout << "Favorite meal: " << this->_fmeal << endl;
+    cout << "Underwear color: " << this->_underwearcolor << endl;
+    cout << "Darkest secret: " << this->_darkestsecret << endl;
+}
