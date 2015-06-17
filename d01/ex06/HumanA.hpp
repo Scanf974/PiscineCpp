@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/16 11:46:36 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 20:49:12 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/16 20:51:26 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/17 17:20:38 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
-void	memoryLeak(void)
+# include <iostream>
+# include "Weapon.hpp"
+
+class	HumanA
 {
-	std::string		*panthere = new std::string("String panthere");
+	public:
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA(void);
+		void	attack(void);
 
-	std::cout << *panthere << std::endl;
-	delete panthere;
-}
+	private:
+		std::string	_name;
+		Weapon		& _weapon;
+
+};
+
+#endif
