@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/17 13:05:02 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 15:55:34 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/17 15:56:56 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class	Fixed
 		int					_rawBits;
 		static int const	_nbFractional = 8;
 
+	private:
 };
 
 #endif
