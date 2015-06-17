@@ -6,11 +6,13 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/17 13:05:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 18:59:18 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/17 21:03:44 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.class.hpp"
+
+int const		Fixed::_nbFractorial = 8;
 
 Fixed::Fixed(void) : _fixedPoint(0) {
 	std::cout << "Default constructor called" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/17 13:05:02 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 18:57:58 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/17 21:04:30 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Fixed
 
 	private:
 		int					_fixedPoint;
-		static int const	_nbFractional = 8;
+		static int const	_nbFractorial;
 
 	private:
 };
