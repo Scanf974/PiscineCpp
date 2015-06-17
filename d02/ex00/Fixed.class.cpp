@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Fixed.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/16 16:14:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 12:34:25 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/17 13:05:15 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/17 13:28:05 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream>
+#include "Fixed.class.hpp"
 
-Brain::Brain(void)
-{
-	std::cout << "Brain constructor" << std::endl;
+Fixed::Fixed(void) {
+	std::cout << "Default Fixed constructor called" << std::endl;
 	return ;
 }
 
-Brain::~Brain(void) {
-	std::cout << "Brain desstructor" << std::endl;
+Fixed::~Fixed(void) {
+	std::cout << "Fixed destructor called" << std::endl;
 	return ;
 }
 
-std::string		Brain::identify(void) const {
-	std::stringstream ss;
-	ss << this; 
-	return (ss.str());
+Fixed::Fixed(Fixed const & src) {
+	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
+
+	return ;
 }
+
+

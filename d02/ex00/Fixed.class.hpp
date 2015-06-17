@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/16 16:14:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 12:34:25 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/17 13:05:02 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/17 13:24:37 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream>
+#ifndef FIXED_CLASS_HPP 
+# define FIXED_CLASS_HPP
 
-Brain::Brain(void)
+# include <iostream>
+
+class	Fixed
 {
-	std::cout << "Brain constructor" << std::endl;
-	return ;
-}
+	public:
+		Fixed(void);
+		Fixed(Fixed const & src);
+		~Fixed(void);
 
-Brain::~Brain(void) {
-	std::cout << "Brain desstructor" << std::endl;
-	return ;
-}
+		Fixed &		operator=(Fixed const & rhs);
 
-std::string		Brain::identify(void) const {
-	std::stringstream ss;
-	ss << this; 
-	return (ss.str());
-}
+	private:
+
+};
+
+#endif
+
