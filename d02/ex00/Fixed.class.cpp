@@ -6,13 +6,13 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/17 13:05:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 15:57:36 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/17 18:59:18 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.class.hpp"
 
-Fixed::Fixed(void) : _rawBits(0) {
+Fixed::Fixed(void) : _fixedPoint(0) {
 	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
@@ -31,13 +31,17 @@ Fixed::~Fixed(void) {
 
 int			Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_rawBits);
+	return (this->_fixedPoint);
+}
+
+void		Fixed::setRawBits(int const raw) {
+	this->_fixedPoint = raw;
 }
 
 Fixed		& Fixed::operator=( Fixed const & rhs) {
 	std::cout << "Assignation operator called" << std::endl;
 
 	if ( this != &rhs )
-		this->_rawBits = rhs.getRawBits();
+		this->_fixedPoint = rhs.getRawBits();
 	return ( *this );
 }

@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/17 13:05:02 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 15:56:56 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/17 18:57:58 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ class	Fixed
 		Fixed		& operator=(Fixed const & rhs);
 
 		int			getRawBits(void) const;
+		void		setRawBits(int const raw);
 
 	private:
-		int					_rawBits;
+		int					_fixedPoint;
 		static int const	_nbFractional = 8;
 
 	private:
