@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/16 16:14:58 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/17 12:34:25 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/17 15:16:18 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/17 15:53:27 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream>
+#include "Fixed.class.hpp"
 
-Brain::Brain(void)
+int		main(void)
 {
-	std::cout << "Brain constructor" << std::endl;
-	return ;
-}
 
-Brain::~Brain(void) {
-	std::cout << "Brain desstructor" << std::endl;
-	return ;
-}
-
-std::string		Brain::identify(void) const {
-	std::stringstream ss;
-	ss << this; 
-	return (ss.str());
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;	
+	return (0);
 }
