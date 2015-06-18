@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 16:00:22 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/18 17:00:27 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/18 17:26:54 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ FragTrap::FragTrap(void) :
 	_maxEnergyPoints(100),
 	_level(1),
 	_name("No-Name"),
-	_intMaleeAttackDamage(30),
-	_rangeAttackDamage(20),
+	_maleeAttackDamage(30),
+	_rangedAttackDamage(20),
 	_armorDamageReduction(5) {
 	std::cout << "FragTrap: Default constructor" << std::endl;
 	return ;
@@ -34,8 +34,8 @@ FragTrap::FragTrap(std::string name) :
 	_maxEnergyPoints(100),
 	_level(1),
 	_name(name),
-	_intMaleeAttackDamage(30),
-	_rangeAttackDamage(20),
+	_maleeAttackDamage(30),
+	_rangedAttackDamage(20),
 	_armorDamageReduction(5) {
 
 	std::cout << "FragTrap: Default2 constructor" << std::endl;
@@ -67,42 +67,65 @@ FragTrap		& FragTrap::operator=(FragTrap const & right) {
 		this->_maxEnergyPoints = right.getMaxEnergyPoints();
 		this->_level = right.getLevel();
 		this->_name = right.getName();
-		this->_intMaleeAttackDamage = right.getIntMaleeAttackDamage();
-		this->_rangeAttackDamage = right.getRangeAttackDamage();
+		this->_maleeAttackDamage = right.getMaleeAttackDamage();
+		this->_rangedAttackDamage = right.getRangedAttackDamage();
 		this->_armorDamageReduction = right.getArmorDamageReduction();
 	}
 	return (*this);
 }
 
 /*------------------ Geter -----------------*/
-int					FragTrap::getHitPoints(void) const {
+unsigned int					FragTrap::getHitPoints(void) const {
 	return (this->_hitPoints);
 }
-int					FragTrap::getMaxHitPoints(void) const {
+unsigned int					FragTrap::getMaxHitPoints(void) const {
 	return (this->_maxHitPoints);
 }
-int					FragTrap::getEnergyPoints(void) const {
+unsigned int					FragTrap::getEnergyPoints(void) const {
 	return (this->_energyPoints);
 }
-int					FragTrap::getMaxEnergyPoints(void) const {
+unsigned int					FragTrap::getMaxEnergyPoints(void) const {
 	return (this->_maxEnergyPoints);
 }
-int					FragTrap::getLevel(void) const {
+unsigned int					FragTrap::getLevel(void) const {
 	return (this->_level);
 }
 std::string			FragTrap::getName(void) const {
 	return (this->_name);
 }
-int					FragTrap::getIntMaleeAttackDamage(void) const {
-	return (this->_intMaleeAttackDamage);
+unsigned int					FragTrap::getMaleeAttackDamage(void) const {
+	return (this->_maleeAttackDamage);
 }
-int					FragTrap::getRangeAttackDamage(void) const {
-	return (this->_rangeAttackDamage);
+unsigned int					FragTrap::getRangedAttackDamage(void) const {
+	return (this->_rangedAttackDamage);
 }
-int					FragTrap::getArmorDamageReduction(void) const {
+unsigned int					FragTrap::getArmorDamageReduction(void) const {
 	return (this->_armorDamageReduction);
 }
 
 /*------------------ Seter -----------------*/
 
 /*------------------ Other -----------------*/
+void				FragTrap::rangedAttack(std::string const & target) const {
+	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at range, causing " << this->_rangedAttackDamage << " points of damage !" << std::endl;
+	return ;
+}
+
+void				FragTrap::maleeAttack(std::string const & target) const {
+	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at malee, causing " <<     this->_maleeAttackDamage << " points of damage !" << std::endl;	
+	return ;
+}
+
+void				FragTrap::takeDamage(unsigned int amount) {
+	if (this->_hitPoints < amount)
+	{
+		std::cout << "FR4G-TP " << this->_name << " take " << this->_hitPoints << " points of damage !" << std::endl;
+		this->_hitPoints = 0;
+	}
+	else
+	{
+		std::cout << "FR4G-TP " << this->_name << " take " << amount << " points of damage !" << std::endl;
+		this->_hitPoints -= amount;
+	}
+	return ;
+}

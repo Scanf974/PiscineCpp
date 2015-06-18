@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 16:23:17 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/18 16:58:58 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/18 17:27:28 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 int		main(void)
 {
 	FragTrap	b("Bruno");
-	FragTrap	a;
+	FragTrap	j("Jean");
 
-	a = b;
+	b.rangedAttack(j.getName());
+	j.takeDamage(34);
+	std::cout << j.getHitPoints() << std::endl;
+	
 	return (0);
 }
