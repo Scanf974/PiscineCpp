@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.class.hpp                                 :+:      :+:    :+:   */
+/*   ScavTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 16:00:35 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/18 21:54:18 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/18 20:50:05 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include <iostream>
 
-class	FragTrap
+class	ScavTrap
 {
 	public:
-		FragTrap(void);
-		FragTrap(std::string name);
-		FragTrap(FragTrap const & src);
-		~FragTrap(void);
+		ScavTrap(void);
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const & src);
+		~ScavTrap(void);
 
-		FragTrap		& operator=(FragTrap const & right);
+		ScavTrap		& operator=(ScavTrap const & right);
 
 		unsigned int	getHitPoints(void) const;
 		unsigned int	getMaxHitPoints(void) const;
@@ -40,13 +40,6 @@ class	FragTrap
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 
-		void			bifle(std::string const & target);
-		void			coupDeCul(std::string const & target);
-		void			fiste(std::string const & target);
-		void			fFontaine(std::string const & target);
-		void			gizz(std::string const & target);
-		void			vaulthunter_dot_exe(std::string const & target);
-
 	private:
 		unsigned int	_hitPoints;
 		unsigned int	_maxHitPoints;
@@ -59,8 +52,6 @@ class	FragTrap
 		unsigned int	_armorDamageReduction;
 
 };
-
-typedef void (FragTrap::*attacksSpec)(std::string const &);
 
 #endif
 
