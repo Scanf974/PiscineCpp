@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 16:00:22 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/18 17:26:54 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/18 20:01:27 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,31 +75,31 @@ FragTrap		& FragTrap::operator=(FragTrap const & right) {
 }
 
 /*------------------ Geter -----------------*/
-unsigned int					FragTrap::getHitPoints(void) const {
+unsigned int		FragTrap::getHitPoints(void) const {
 	return (this->_hitPoints);
 }
-unsigned int					FragTrap::getMaxHitPoints(void) const {
+unsigned int		FragTrap::getMaxHitPoints(void) const {
 	return (this->_maxHitPoints);
 }
-unsigned int					FragTrap::getEnergyPoints(void) const {
+unsigned int		FragTrap::getEnergyPoints(void) const {
 	return (this->_energyPoints);
 }
-unsigned int					FragTrap::getMaxEnergyPoints(void) const {
+unsigned int		FragTrap::getMaxEnergyPoints(void) const {
 	return (this->_maxEnergyPoints);
 }
-unsigned int					FragTrap::getLevel(void) const {
+unsigned int		FragTrap::getLevel(void) const {
 	return (this->_level);
 }
 std::string			FragTrap::getName(void) const {
 	return (this->_name);
 }
-unsigned int					FragTrap::getMaleeAttackDamage(void) const {
+unsigned int		FragTrap::getMaleeAttackDamage(void) const {
 	return (this->_maleeAttackDamage);
 }
-unsigned int					FragTrap::getRangedAttackDamage(void) const {
+unsigned int		FragTrap::getRangedAttackDamage(void) const {
 	return (this->_rangedAttackDamage);
 }
-unsigned int					FragTrap::getArmorDamageReduction(void) const {
+unsigned int		FragTrap::getArmorDamageReduction(void) const {
 	return (this->_armorDamageReduction);
 }
 
@@ -117,15 +117,48 @@ void				FragTrap::maleeAttack(std::string const & target) const {
 }
 
 void				FragTrap::takeDamage(unsigned int amount) {
-	if (this->_hitPoints < amount)
-	{
+	if (this->_hitPoints < amount - this->_armorDamageReduction) {
 		std::cout << "FR4G-TP " << this->_name << " take " << this->_hitPoints << " points of damage !" << std::endl;
 		this->_hitPoints = 0;
 	}
-	else
-	{
-		std::cout << "FR4G-TP " << this->_name << " take " << amount << " points of damage !" << std::endl;
-		this->_hitPoints -= amount;
+	else {
+		std::cout << "FR4G-TP " << this->_name << " take " << amount - this->_armorDamageReduction << " points of damage !" << std::endl;
+		this->_hitPoints -= amount - this->_armorDamageReduction;
 	}
+	return ;
+}
+
+void				FragTrap::beRepaired(unsigned int amount) {
+	if (this->_hitPoints + amount > this->_maxHitPoints) {
+		std::cout << "FR4G-TP " << this->_name << " take " << this->_maxHitPoints - this->_hitPoints << " points of repairs !" << std::endl;
+		this->_hitPoints = this->_maxHitPoints;
+	}
+	else {
+		std::cout << "FR4G-TP " << this->_name << " take " << amount << " points of repairs !" << std::endl;
+		this->_hitPoints += amount;
+	}
+	return ;
+}
+
+void				FragTrap::vaulthunter_dot_exe(std::string const & target) {
+	int			pos;
+	std::string	att[5];
+
+	att[0] = "Bifle";
+	att[1] = "Coup de cul";
+	att[2] = "Fiste";
+	att[3] = "F. Fontaine";
+	att[4] = "Gizz";
+
+	pos = rand() % 5;
+	if (25 < this->_energyPoints) {
+		std::cout << "FR4G-TP " << this->_name << " do a " << att[pos] << " on " << target << "for 25 points of energies !" << std::endl;	
+		this->_energyPoints -= 25;
+	}
+	else
+		std::cout << "Not enought energy to do " << att[pos] << " on " << target << " !" << std::endl;
+
+
+
 	return ;
 }
