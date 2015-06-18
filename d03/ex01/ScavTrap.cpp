@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 16:00:22 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/18 21:15:16 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/18 22:21:27 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,25 +140,37 @@ void				ScavTrap::beRepaired(unsigned int amount) {
 	return ;
 }
 
-void				ScavTrap::vaulthunter_dot_exe(std::string const & target) {
-	int			pos;
-	std::string	att[5];
+void				ScavTrap::poop(std::string const & target) {
+		std::cout << "FR4G-TP " << this->_name << " challenges " << target << " to poop !" << std::endl;	
+}
 
-	att[0] = "Bifle";
-	att[1] = "Coup de cul";
-	att[2] = "Fiste";
-	att[3] = "F. Fontaine";
-	att[4] = "Gizz";
+void				ScavTrap::pee(std::string const & target) {
+		std::cout << "FR4G-TP " << this->_name << " challenges " << target << " to pee !" << std::endl;	
+}
+
+void				ScavTrap::eat(std::string const & target) {
+		std::cout << "FR4G-TP " << this->_name << " challenges " << target << " to eat !" << std::endl;	
+}
+
+void				ScavTrap::sit(std::string const & target) {
+		std::cout << "FR4G-TP " << this->_name << " challenges " << target << " to sit !" << std::endl;	
+}
+
+void				ScavTrap::standUp(std::string const & target) {
+		std::cout << "FR4G-TP " << this->_name << " challenges " << target << " to stand up !" << std::endl;	
+}
+
+void				ScavTrap::challengeNewcomer(std::string const & target) {
+	int				pos;
+	newcomer		newcomer[5];
+
+	newcomer[0] = &ScavTrap::poop;
+	newcomer[1] = &ScavTrap::pee;
+	newcomer[2] = &ScavTrap::eat;
+	newcomer[3] = &ScavTrap::sit;
+	newcomer[4] = &ScavTrap::standUp;
 
 	pos = rand() % 5;
-	if (25 < this->_energyPoints) {
-		std::cout << "FR4G-TP " << this->_name << " do a " << att[pos] << " on " << target << "for 25 points of energies !" << std::endl;	
-		this->_energyPoints -= 25;
-	}
-	else
-		std::cout << "Not enought energy to do " << att[pos] << " on " << target << " !" << std::endl;
-
-
-
+	(this->*newcomer[pos])(target);
 	return ;
 }

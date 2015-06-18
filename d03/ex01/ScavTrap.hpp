@@ -6,12 +6,12 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 16:00:35 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/18 20:50:05 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/18 22:23:03 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP 
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP 
+# define SCAVTRAP_HPP
 
 # include <iostream>
 
@@ -40,6 +40,13 @@ class	ScavTrap
 		void			takeDamage(unsigned int amount);
 		void			beRepaired(unsigned int amount);
 
+		void			poop(std::string const & target);
+		void			pee(std::string const & target);
+		void			eat(std::string const & target);
+		void			sit(std::string const & target);
+		void			standUp(std::string const & target);
+		void			challengeNewcomer(std::string const & target);
+
 	private:
 		unsigned int	_hitPoints;
 		unsigned int	_maxHitPoints;
@@ -52,6 +59,8 @@ class	ScavTrap
 		unsigned int	_armorDamageReduction;
 
 };
+
+typedef void (ScavTrap::*newcomer)(std::string const &);
 
 #endif
 

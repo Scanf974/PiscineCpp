@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 16:00:22 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/18 21:53:49 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/18 22:05:54 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,9 +179,6 @@ void				FragTrap::vaulthunter_dot_exe(std::string const & target) {
 	if (25 < this->_energyPoints)
 		(this->*attacks[pos])(target);
 	else
-		std::cout << "Not enought energy to do --  on " << target << " !" << std::endl;
-
-
-
+		std::cout << "Not enought energy !" << std::endl;
 	return ;
 }
