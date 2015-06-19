@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 15:51:42 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 16:22:31 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/19 17:08:38 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 #include "Victim.hpp"
 
 /*-------------- Constructors -------------*/
-Peon::Peon(void) : Victim() {
-	//std::cout << "Peon: Default constructor" << std::endl;
-	return ;
-}
-
 Peon::Peon(std::string name) : Victim(name) {
 	std::cout << "Zog Zog." << std::endl;
 	return ;
@@ -43,7 +38,7 @@ Peon		& Peon::operator=(Peon const & right) {
 	//std::cout << "Peon: Assignement operator" << std::endl;
 
 	if (this != &right) {
-		this->_name = right.getName();
+		this->getName() = right.getName();
 	}
 	return (*this);
 }
@@ -61,7 +56,7 @@ Peon		& Peon::operator=(Peon const & right) {
 
 /*------------------ Other -----------------*/
 void			Peon::getPolymorphed(void) const {
-	std::cout << this->_name << " has been turned into a pink pony !" << std::endl;
+	std::cout << this->getName() << " has been turned into a pink pony !" << std::endl;
 	return ;
 
 }

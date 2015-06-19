@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 15:10:25 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 15:49:37 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/19 17:07:02 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Sorcerer
 	public:
 		Sorcerer(std::string name, std::string title);
 		Sorcerer(Sorcerer const & src);
-		~Sorcerer(void);
+		virtual ~Sorcerer(void);
 
 		Sorcerer		& operator=(Sorcerer const & right);
 
