@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 17:19:54 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 17:29:18 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 00:08:45 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define PLASMARIFLE_CLASS_HPP
 
 # include <iostream>
+# include "AWeapon.hpp"
 
-class	PlasmaRifle
+class	PlasmaRifle : public AWeapon
 {
 	public:
-		PlasmaFifle(int apcost, int damage);
-		PlasmaRifle(PlasmaRifle const & src);
+		PlasmaRifle(void);
 		virtual ~PlasmaRifle(void);
 
 		PlasmaRifle		& operator=(PlasmaRifle const & right);
@@ -27,7 +27,7 @@ class	PlasmaRifle
 		virtual void	attack(void) const;
 
 	private:
-		PlasmaRifle(void);
+		PlasmaRifle(PlasmaRifle const & src);
 
 };
 

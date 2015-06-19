@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 16:45:07 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 17:19:00 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 00:04:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class	AWeapon
 
 	private:
 		AWeapon(void);
+		AWeapon(AWeapon const & src);
+
+		AWeapon			& operator=(AWeapon const & right);
 
 		std::string const	& _name;
 		int					_apcost;

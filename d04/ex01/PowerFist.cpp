@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.class.cpp                                  :+:      :+:    :+:   */
+/*   PowerFist.class.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/19 17:11:27 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:00:36 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/19 17:20:00 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/20 00:16:12 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PowerFist.hpp"
 #include "AWeapon.hpp"
 
 /*-------------- Constructors -------------*/
-AWeapon::AWeapon(std::string const & name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage) {
-	std::cout << "A weapon: " << this->_name << " | " << this->_apcost << " Ap cost | " << this->_damage << " | created." << std::endl;
+PowerFist::PowerFist(void) : AWeapon("PowerFist", 8, 50) {
+	//std::cout << "PowerFist: Copy constructor" << std::endl;
 	return ;
 }
 
 /*--------------- Destructors --------------*/
-AWeapon::~AWeapon(void) {
-	std::cout << "AWeapon: Destructor" << std::endl;
+PowerFist::~PowerFist(void) {
+	//std::cout << "PowerFist: Destructor" << std::endl;
 	return ;
 }
 
 
 /*---------------- Operators ---------------*/
+PowerFist		& PowerFist::operator=(PowerFist const & right) {
+	//std::cout << "PowerFist: Assignement operator" << std::endl;
+
+	if (this != &right)
+		(void)right;
+	return (*this);
+}
+
 
 /*------------------ Geter -----------------*/
-int				AWeapon::getAPCost(void) const {
-	return (this->_apcost);
-}
-int				AWeapon::getDamage(void) const {
-	return (this->_damage);
-}
+
 
 
 
@@ -43,4 +47,7 @@ int				AWeapon::getDamage(void) const {
 
 
 /*------------------ Other -----------------*/
-
+void			PowerFist::attack(void) const {
+	std::cout << "* pschhh... SBAM! *" << std::endl;
+	return ;
+}

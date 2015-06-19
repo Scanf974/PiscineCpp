@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 17:20:00 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 17:29:19 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 00:15:29 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,14 @@
 #include "AWeapon.hpp"
 
 /*-------------- Constructors -------------*/
-PlasmaRifle::PlasmaRifle(int apcost, int damage) : AWeapon("Plasma Rifle", apcost, damage) {
-	std::cout << "PlasmaRifle: Copy constructor" << std::endl;
+PlasmaRifle::PlasmaRifle(void) : AWeapon("Plasma Rifle", 5, 21) {
+	//std::cout << "PlasmaRifle: Default constructor" << std::endl;
 	return ;
 }
-
-PlasmaRifle::PlasmaRifle(PlasmaRifle const & src) {
-	//std::cout << "PlasmaRifle: Copy constructor" << std::endl;
-	*this = src;
-	return ;
-}
-
 
 /*--------------- Destructors --------------*/
 PlasmaRifle::~PlasmaRifle(void) {
-	std::cout << "PlasmaRifle: Destructor" << std::endl;
+	//std::cout << "PlasmaRifle: Destructor" << std::endl;
 	return ;
 }
 
