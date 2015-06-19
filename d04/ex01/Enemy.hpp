@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.class.hpp                                  :+:      :+:    :+:   */
+/*   Enemy.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/19 16:45:07 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:54:43 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/20 00:23:10 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/20 00:54:31 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP 
-# define AWEAPON_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
 # include <iostream>
 
-class	AWeapon
+class	Enemy
 {
 	public:
-		AWeapon(std::string const & name, int apcost, int damage);
-		virtual ~AWeapon(void);
+		Enemy(int hp, std::string const & type);
+		virtual ~Enemy(void);
 
-		std::string 	& getName(void) const;
-		int				getAPCost(void) const;
-		int				getDamage(void) const;
-		virtual void	attack(void) const = 0;
+		std::string const	& getType(void) const;
+		int					getHP(void) const;
+
+		virtual void		takeDamage(int amount);
+
 
 	private:
-		AWeapon(void);
-		AWeapon(AWeapon const & src);
-
-		AWeapon			& operator=(AWeapon const & right);
+		Enemy(void);
+		Enemy(Enemy const & src);
+		Enemy		& operator=(Enemy const & right);
 
 	protected:
-		std::string const	& _name;
-		int					_apcost;
-		int					_damage;
+		int					_hp;
+		std::string const	& _type;
 
 };
 
 #endif
+

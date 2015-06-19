@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 17:25:13 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:14:16 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 01:13:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "AWeapon.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
+#include "Enemy.hpp"
+#include "SuperMutant.hpp"
+#include "RadScorpion.hpp"
 
 int	main(void)
 {

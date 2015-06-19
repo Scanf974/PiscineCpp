@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.class.hpp                                  :+:      :+:    :+:   */
+/*   SuperMutant.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/19 16:45:07 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:54:43 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/20 00:45:32 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/20 00:59:21 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP 
-# define AWEAPON_HPP
+#ifndef SUPERMUTANT_HPP 
+# define SUPERMUTANT_HPP
 
 # include <iostream>
+# include "Enemy.hpp"
 
-class	AWeapon
+class	SuperMutant : public Enemy
 {
 	public:
-		AWeapon(std::string const & name, int apcost, int damage);
-		virtual ~AWeapon(void);
-
-		std::string 	& getName(void) const;
-		int				getAPCost(void) const;
-		int				getDamage(void) const;
-		virtual void	attack(void) const = 0;
+		SuperMutant(void);
+		virtual ~SuperMutant(void);
+		virtual void	takeDamage(int amount);
 
 	private:
-		AWeapon(void);
-		AWeapon(AWeapon const & src);
+		SuperMutant(SuperMutant const & src);
 
-		AWeapon			& operator=(AWeapon const & right);
-
-	protected:
-		std::string const	& _name;
-		int					_apcost;
-		int					_damage;
+		SuperMutant		& operator=(SuperMutant const & right);
 
 };
 
 #endif
+

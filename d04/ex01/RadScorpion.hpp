@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWeapon.class.hpp                                  :+:      :+:    :+:   */
+/*   RadScorpion.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/19 16:45:07 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:54:43 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/20 01:03:36 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/20 01:14:23 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AWEAPON_HPP 
-# define AWEAPON_HPP
+#ifndef RADSCORPION_HPP
+# define RADSCORPION_HPP
 
 # include <iostream>
+# include "Enemy.hpp"
 
-class	AWeapon
+class	RadScorpion : public Enemy
 {
 	public:
-		AWeapon(std::string const & name, int apcost, int damage);
-		virtual ~AWeapon(void);
+		RadScorpion(void);
+		virtual ~RadScorpion(void);
+		virtual void	takeDamage(int amount);
 
-		std::string 	& getName(void) const;
-		int				getAPCost(void) const;
-		int				getDamage(void) const;
-		virtual void	attack(void) const = 0;
 
 	private:
-		AWeapon(void);
-		AWeapon(AWeapon const & src);
+		RadScorpion(RadScorpion const & src);
 
-		AWeapon			& operator=(AWeapon const & right);
-
-	protected:
-		std::string const	& _name;
-		int					_apcost;
-		int					_damage;
+		RadScorpion		& operator=(RadScorpion const & right);
 
 };
 
 #endif
+
