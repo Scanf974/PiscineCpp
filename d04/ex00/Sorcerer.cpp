@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 15:10:38 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 15:31:53 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/19 16:23:30 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ Sorcerer::~Sorcerer(void) {
 Sorcerer		& Sorcerer::operator=(Sorcerer const & right) {
 	//std::cout << "Sorcerer: Assignement operator" << std::endl;
 
-	if (this != &right)
-		(void)right;
+	if (this != &right) {
+		this->_name = right.getName();
+	}
 	return (*this);
 }
 
 std::ostream	& operator<<(std::ostream & o, Sorcerer const & right) {
-	o << "I am " << right.getName() << ", " << right.getTitle() << ", and i like ponies !";
+	o << "I am " << right.getName() << ", " << right.getTitle() << ", and i like ponies !" << std::endl;
 	return (o);
 }
 
@@ -67,3 +68,7 @@ std::string			Sorcerer::getTitle(void) const {
 
 
 /*------------------ Other -----------------*/
+void				Sorcerer::polymorph(Victim const & victim) const {
+	std::cout << this->_name << " try to polymorph " << victim.getName() << " !" << std::endl;
+	return ;
+}

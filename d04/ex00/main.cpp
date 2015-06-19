@@ -6,20 +6,22 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 15:28:07 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 15:40:01 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/19 16:07:37 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Sorcerer.hpp"
 #include "Victim.hpp"
+#include "Peon.hpp"
 
 int		main(void)
 {
-	Sorcerer	a("Bruno", "King");
-	Victim		v("Gros PD");
-
-	std::cout << a << std::endl;
-	std::cout << v << std::endl;
+Sorcerer robert("Robert", "the Magnificent");
+Victim jim("Jimmy");
+Peon joe("Joe");
+std::cout << robert << jim << joe;
+robert.polymorph(jim);
+robert.polymorph(joe);	
 	return (0);
 }

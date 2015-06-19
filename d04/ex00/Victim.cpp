@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 15:33:30 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/19 15:40:45 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/19 16:23:05 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ Victim::~Victim(void) {
 Victim		& Victim::operator=(Victim const & right) {
 	//std::cout << "Victim: Assignement operator" << std::endl;
 
-	if (this != &right)
-		(void)right;
+	if (this != &right) {
+		this->_name = right.getName();
+	}
 	return (*this);
 }
 
 std::ostream    & operator<<(std::ostream & o, Victim const & right) {
-	o << "I'm " << right.getName() << ", and i like otters !";
+	o << "I'm " << right.getName() << ", and i like otters !" << std::endl;
 	return (o);
 }
 
@@ -61,6 +62,8 @@ std::string		Victim::getName(void) const {
 
 
 
-
 /*------------------ Other -----------------*/
-
+void			Victim::getPolymorphed(void) const {
+	std::cout << this->_name << " has been turned into a cute little sheep !" << std::endl;
+	return ;
+}
