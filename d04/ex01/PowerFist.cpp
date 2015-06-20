@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 17:20:00 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 02:17:54 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 03:10:05 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "AWeapon.hpp"
 
 /*-------------- Constructors -------------*/
-PowerFist::PowerFist(void) : AWeapon("PowerFist", 8, 50) {
+PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50) {
 	//std::cout << "PowerFist: Copy constructor" << std::endl;
 	return ;
 }
