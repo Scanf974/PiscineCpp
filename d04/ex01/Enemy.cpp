@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 00:22:48 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:45:07 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 03:01:47 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 /*-------------- Constructors -------------*/
 Enemy::Enemy(int hp, std::string const & type) : _hp(hp), _type(type) {
-	std::cout << "Enemy: Default constructor" << std::endl;
+//	std::cout << "Enemy: Default constructor" << std::endl;
 	return ;
 }
 
 
 /*--------------- Destructors --------------*/
 Enemy::~Enemy(void) {
-	std::cout << "Enemy: Destructor" << std::endl;
+//	std::cout << "Enemy: Destructor" << std::endl;
 	return ;
 }
 
@@ -29,7 +29,7 @@ Enemy::~Enemy(void) {
 /*---------------- Operators ---------------*/
 
 /*------------------ Geter -----------------*/
-std::string const		& Enemy::getType(void) const {
+std::string const		Enemy::getType(void) const {
 	return (this->_type);
 }
 

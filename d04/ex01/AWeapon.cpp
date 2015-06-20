@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/19 17:11:27 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:00:36 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 03:02:39 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*-------------- Constructors -------------*/
 AWeapon::AWeapon(std::string const & name, int apcost, int damage) : _name(name), _apcost(apcost), _damage(damage) {
-	std::cout << "A weapon: " << this->_name << " | " << this->_apcost << " Ap cost | " << this->_damage << " | created." << std::endl;
+//	std::cout << "A weapon: " << this->_name << " | " << this->_apcost << " Ap cost | " << this->_damage << " | created." << std::endl;
 	return ;
 }
 
@@ -28,6 +28,9 @@ AWeapon::~AWeapon(void) {
 /*---------------- Operators ---------------*/
 
 /*------------------ Geter -----------------*/
+std::string const	AWeapon::getName(void) const {
+	return (this->_name);
+}
 int				AWeapon::getAPCost(void) const {
 	return (this->_apcost);
 }

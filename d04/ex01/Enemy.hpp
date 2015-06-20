@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/20 00:23:10 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/20 00:54:31 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/20 02:55:48 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Enemy
 		Enemy(int hp, std::string const & type);
 		virtual ~Enemy(void);
 
-		std::string const	& getType(void) const;
+		std::string const	getType(void) const;
 		int					getHP(void) const;
 
 		virtual void		takeDamage(int amount);
@@ -34,7 +34,7 @@ class	Enemy
 
 	protected:
 		int					_hp;
-		std::string const	& _type;
+		std::string			_type;
 
 };
 
