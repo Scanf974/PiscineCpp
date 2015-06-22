@@ -6,11 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/22 17:05:53 by bsautron          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2015/06/22 20:38:17 by bsautron         ###   ########.fr       */
-=======
-/*   Updated: 2015/06/22 19:55:34 by bsautron         ###   ########.fr       */
->>>>>>> ecb46ad174ae152e27591188689bcd30ba5b7813
+/*   Updated: 2015/06/22 23:17:12 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +14,10 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+
+class Form;
+
+# include "Form.hpp"
 
 class	Bureaucrat
 {
@@ -31,6 +31,8 @@ class	Bureaucrat
 
 		void				incrementGrade(void);
 		void				decrementGrade(void);
+
+		void				signForm(Form & f);
 
 		class		GradeTooHighException : public std::exception
 		{
@@ -75,11 +77,6 @@ class	Bureaucrat
 
 };
 
-<<<<<<< HEAD
 std::ostream		& operator<<(std::ostream & o, Bureaucrat const & right);
 
 #endif
-=======
-#endif
-
->>>>>>> ecb46ad174ae152e27591188689bcd30ba5b7813
