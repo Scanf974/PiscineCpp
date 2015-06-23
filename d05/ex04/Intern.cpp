@@ -1,0 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.class.cpp                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/06/23 03:25:25 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/23 03:58:01 by bsautron         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "OfficeBlock.hpp"
+
+/*-------------- Constructors -------------*/
+Intern::Intern(void) {
+	//std::cout << "Intern: Default constructor" << std::endl;
+	return ;
+}
+
+
+/*--------------- Destructors --------------*/
+Intern::~Intern(void) {
+	//std::cout << "Intern: Destructor" << std::endl;
+	return ;
+}
+
+
+/*---------------- Operators ---------------*/
+
+
+/*------------------ Geter -----------------*/
+
+
+
+
+/*------------------ Seter -----------------*/
+
+
+
+
+/*------------------ Other -----------------*/
+
+Form			*Intern::makeForm(std::string nameForm, std::string target) {
+	Form	*f = 0;
+	try
+	{
+		if (nameForm.compare("robotomy request") == 0) {
+			f = new RobotomyRequestForm(target);
+		}
+		else if (nameForm.compare("residential pardon") == 0) {
+			f = new PresidentialPardonForm(target);
+		}
+		else if (nameForm.compare("shrubbery creation") == 0) {
+			f = new ShrubberyCreationForm(target);
+		}
+		else
+			throw Intern::someRandException();
+	}
+	catch (Intern::someRandException & e)
+	{
+		std::cout << e.error() << " " << nameForm << std::endl;
+		throw std::exception();
+	}
+	return f;
+}
+
+Intern::someRandException::someRandException(void) throw() {
+	return ;
+}
+Intern::someRandException::~someRandException(void) throw() {
+	return ;
+}
+const char			*Intern::someRandException::error(void) {
+	return ("Intern can't creates");
+}
