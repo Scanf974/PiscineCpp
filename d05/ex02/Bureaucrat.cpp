@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/22 19:00:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/23 03:17:19 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/23 03:05:11 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,16 +110,32 @@ void				Bureaucrat::decrementGrade(void) {
 	}
 }
 
-void                Bureaucrat::signForm(Form & f) {
-    try
-    {
-        f.beSigned(*this);
-        std::cout << this->_name << " signs " << f.getName() << std::endl;
+void				Bureaucrat::signForm(Form & f) {
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->_name << " signs " << f.getName() << std::endl;
 
-    }
+	}
+	catch (Form::GradeTooLowException & e)
+	{
+		std::cout << this->_name << " cannot sign " << f.getName() << " because He's low grade" << std::endl;
+	}
+
+}
+
+void				Bureaucrat::executeForm(Form const & form) {
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executes " << form.getName() << std::endl;
+	}
     catch (Form::GradeTooLowException & e)
     {
-        std::cout << this->_name << " cannot sign " << f.getName() << " because He's low grade" << std::endl;
+        std::cout << e.errorGrade() << " for " << form.getName() << std::endl;
     }
-
+    catch (Form::AlreadySignedException & e)
+    {
+        std::cout << e.errorSigned() << " for " << form.getName() << std::endl;
+    }
 }
