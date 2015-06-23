@@ -83,6 +83,16 @@ Form::AlreadySignedException::~AlreadySignedException(void) throw() {
 }
 
 
+const char			*Form::GradeTooHighException::errorGrade(void) {
+	return ("Grade too hight!");
+}
+const char			*Form::GradeTooLowException::errorGrade(void) {
+	return ("Grade too low!");
+}
+const char			*Form::AlreadySignedException::errorSigned(void) {
+	return ("Already Signed!");
+}
+
 
 /*------------------ Other -----------------*/
 void			Form::beSigned(Bureaucrat const & b) {

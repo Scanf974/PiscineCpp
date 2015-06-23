@@ -29,10 +29,7 @@ class	Intern
             someRandException(someRandException const & src) throw();
             ~someRandException(void) throw();
 
-
-            const char          *error(void){
-                return ("Intern can't creates");
-            }
+            const char          *error(void);
 
         private:
             someRandException   & operator=(someRandException const & right);

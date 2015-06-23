@@ -76,3 +76,6 @@ Intern::someRandException::someRandException(void) throw() {
 Intern::someRandException::~someRandException(void) throw() {
 	return ;
 }
+const char			*Intern::someRandException::error(void) {
+	return ("Intern can't creates");
+}

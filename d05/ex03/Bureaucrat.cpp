@@ -35,6 +35,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	return ;
 }
 
+Bureaucrat::Bureaucrat(Bureaucrat const & src) {
+	*this = src;
+	return ;
+}
+
 
 /*--------------- Destructors --------------*/
 Bureaucrat::~Bureaucrat(void) {
@@ -44,6 +49,15 @@ Bureaucrat::~Bureaucrat(void) {
 
 
 /*---------------- Operators ---------------*/
+Bureaucrat      & Bureaucrat::operator=(Bureaucrat const & right) {
+	if (this != &right)
+	{
+		//this->_name = right.getName();
+		this->_grade = right.getGrade();
+	}
+	return (*this);
+}
+
 std::ostream		& operator<<(std::ostream & o, Bureaucrat const & right) {
 	o << right.getName() << ", bureaucrat grade " << right.getGrade();
 	return (o);
@@ -78,6 +92,14 @@ Bureaucrat::GradeTooLowException::GradeTooLowException(void) throw() {
 }
 Bureaucrat::GradeTooLowException::~GradeTooLowException(void) throw() {
 	return ;
+}
+
+const char		*Bureaucrat::GradeTooHighException::errorGrade(void) {
+	return ("Grade too hight!");
+}
+
+const char		*Bureaucrat::GradeTooLowException::errorGrade(void) {
+	return ("Grade too low!");
 }
 
 void				Bureaucrat::incrementGrade(void) {

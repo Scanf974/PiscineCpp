@@ -41,9 +41,7 @@ class	Form
 			~GradeTooHighException(void) throw();
 
 
-			const char          *errorGrade(void){
-				return ("Grade too hight!");
-			}
+			const char          *errorGrade(void);
 
 		private:
 			GradeTooHighException   & operator=(GradeTooHighException const & right);
@@ -57,9 +55,7 @@ class	Form
 			GradeTooLowException(GradeTooLowException const & src) throw();
 			~GradeTooLowException(void) throw();
 
-			const char          *errorGrade(void) {
-				return ("Grade too low!");
-			}
+			const char          *errorGrade(void);
 
 
 		private:
@@ -74,9 +70,7 @@ class	Form
 			~AlreadySignedException(void) throw();
 
 
-			const char          *errorSigned(void){
-				return ("Already Signed!");
-			}
+			const char          *errorSigned(void);
 
 		private:
 			AlreadySignedException   & operator=(AlreadySignedException const & right);
