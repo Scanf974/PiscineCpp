@@ -6,11 +6,13 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/24 00:30:34 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/24 07:26:04 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/24 11:39:55 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits>
 #include <iostream>
+#include <iomanip>
 
 void	conv_char(int n, bool nan)
 {
@@ -19,7 +21,7 @@ void	conv_char(int n, bool nan)
 	std::cout << "char: ";
 	if (nan)
 		std::cout << "impossible";
-	else if (n > ' ' && n <= '~') {
+	else if (n % 255 > ' ') {
 		c = static_cast<char>(n);
 		std::cout << "'" << c << "'";
 	}
