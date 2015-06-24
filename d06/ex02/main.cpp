@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/24 11:44:48 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/24 14:19:44 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/24 14:21:27 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,25 +51,19 @@ void identify_from_reference( Base & p )
 		*b = dynamic_cast<A &>(p);
 		std::cout << "A" << std::endl;
 	}
-	catch ( std::bad_cast & e )
-	{
-	}
+	catch ( std::bad_cast & e ) {}
 	try
 	{
 		*b = dynamic_cast<B &>(p);
 		std::cout << "B" << std::endl;
 	}
-	catch ( std::bad_cast & e )
-	{
-	}
+	catch ( std::bad_cast & e ) {}
 	try
 	{
 		*b = dynamic_cast<C &>(p);
 		std::cout << "C" << std::endl;
 	}
-	catch ( std::bad_cast & e )
-	{
-	}
+	catch ( std::bad_cast & e )	{}
 }
 
 int		main(void)
