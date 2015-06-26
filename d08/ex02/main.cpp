@@ -6,26 +6,43 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/26 15:48:44 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/26 16:57:06 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/26 23:39:05 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack>
 #include <iostream>
+#include "mutantstack.hpp"
 
-int		main(void)
+int main()
 {
-	std::stack<int>		st(2);
+	MutantStack<int> mstack;
+	mstack.push(5);
+	mstack.push(17);
 
-	try
+	std::cout << mstack.top() << std::endl;
+
+	mstack.pop();
+
+	std::cout << mstack.size() << std::endl;
+
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	//[...]
+	mstack.push(0);
+
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+
+	++it;
+	--it;
+	std::cout << "--------" << std::endl;
+	while (it != ite)
 	{
-	st.push(23);
-	st.push(2);
+		std::cout << *it << std::endl;
+		++it;
 	}
-	catch (std::exception & e)
-	{
-		std::cout <<  "sfsdfsdf" << std::endl;
-	}
-	
-	return (0);
+	std::stack<int> s(mstack);
+	return 0;
 }
