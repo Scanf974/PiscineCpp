@@ -53,7 +53,7 @@ Span		& Span::operator=(Span const & right) {
 
 /*------------------ Other -----------------*/
 void			Span::addNumber(int nb) {
-	if (this->_size < this->_lenMax)
+	if (this->_cont.size() < this->_lenMax)
 		this->_cont.push_back(nb);
 	else
 		throw std::exception();
@@ -65,33 +65,32 @@ int				Span::longestSpan(void) {
 	{
 		std::list<int>		tmp = this->_cont;
 		tmp.sort();
-		std::list<int>::const_iterator		beg = tmp.begin();
-		tmp.reverse();
-		std::list<int>::const_iterator		end = tmp.begin();
-		return (*end - *beg);
+		return (tmp.back() - tmp.front());
 	}
 	return (0);
 }
 
 int				Span::shortestSpan(void) {
-	int		range = 0;
-	int		tmp = 0;
-	int		i = 0;
+	int					range = 0;
+	int					i = 0;
+	std::list<int>		tmp = this->_cont;
+	int					save = 0;
 
 	if (this->_cont.size() > 0)
 	{
-		std::list<int>		tmp = this->_cont;
 		tmp.sort();
-		std::list<int>::const_iterator		beg = tmp.begin();
-		std::list<int>::const_iterator		end = tmp.end();
+		std::list<int>::iterator		beg = tmp.begin();
+		std::list<int>::iterator		end = tmp.end();
+		range = this->longestSpan();
 		for (; beg != end; beg++)
 		{
 			if (i != 0)
 			{
-				if (beg - tmp < range)
-					range = beg - tmp;
+				if (tmp.front() - save < range)
+					range = tmp.front() - save;
 			}
-			tmp = beg;
+			save = tmp.front();
+			tmp.pop_front();
 			i++;
 		}
 	}
