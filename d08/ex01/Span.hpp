@@ -26,14 +26,13 @@ class	Span
 		Span		& operator=(Span const & right);
 
 		void		addNumber(int nb);
-	//	int			shortestSpan(void);
+		int			shortestSpan(void);
 		int			longestSpan(void);
 
 	private:
 		Span(void);
 
 		std::list<int>			_cont;
-		unsigned int			_size;
 		unsigned int 			_lenMax;
 };
 

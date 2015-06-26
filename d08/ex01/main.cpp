@@ -16,23 +16,13 @@
 
 int		main(void)
 {
-	Span	a(10);
-
-	try
-	{
-		a.addNumber(43);
-		a.addNumber(3);
-		a.addNumber(3);
-		a.addNumber(3);
-		a.addNumber(3);
-		a.addNumber(3);
-		a.addNumber(3);
-
-		std::cout << a.longestSpan() << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Out of Range" << std::endl;
-	}
+	Span sp = Span(5);
+	sp.addNumber(5);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.longestSpan() << std::endl;
+	std::cout << sp.shortestSpan() << std::endl;
 	return (0);
 }

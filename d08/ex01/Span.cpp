@@ -13,7 +13,7 @@
 #include "Span.hpp"
 
 /*-------------- Constructors -------------*/
-Span::Span(unsigned int n) : _size(0), _lenMax(n) {
+Span::Span(unsigned int n) : _lenMax(n) {
 	//std::cout << "Span: Default constructor" << std::endl;
 	return ;
 }
@@ -54,21 +54,46 @@ Span		& Span::operator=(Span const & right) {
 /*------------------ Other -----------------*/
 void			Span::addNumber(int nb) {
 	if (this->_size < this->_lenMax)
-	{
 		this->_cont.push_back(nb);
-		this->_size++;
-	}
 	else
 		throw std::exception();
 }
 
 int				Span::longestSpan(void) {
 
-	if (this->_size > 0)
+	if (this->_cont.size() > 0)
 	{
-
-		std::list<int>::const_iterator		beg = this->_cont.end();
-		std::cout << *beg << std::endl;
+		std::list<int>		tmp = this->_cont;
+		tmp.sort();
+		std::list<int>::const_iterator		beg = tmp.begin();
+		tmp.reverse();
+		std::list<int>::const_iterator		end = tmp.begin();
+		return (*end - *beg);
 	}
 	return (0);
+}
+
+int				Span::shortestSpan(void) {
+	int		range = 0;
+	int		tmp = 0;
+	int		i = 0;
+
+	if (this->_cont.size() > 0)
+	{
+		std::list<int>		tmp = this->_cont;
+		tmp.sort();
+		std::list<int>::const_iterator		beg = tmp.begin();
+		std::list<int>::const_iterator		end = tmp.end();
+		for (; beg != end; beg++)
+		{
+			if (i != 0)
+			{
+				if (beg - tmp < range)
+					range = beg - tmp;
+			}
+			tmp = beg;
+			i++;
+		}
+	}
+	return (range);
 }
